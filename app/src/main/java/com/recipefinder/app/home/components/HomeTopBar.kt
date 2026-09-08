@@ -26,7 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.recipefinder.app.ui.theme.BgColor
 import com.recipefinder.app.ui.theme.DeepNavy
 import com.recipefinder.app.ui.theme.PrimaryBlue
 import com.recipefinder.app.ui.theme.TextPrimary
