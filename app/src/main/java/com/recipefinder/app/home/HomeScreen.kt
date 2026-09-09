@@ -42,9 +42,6 @@ fun HomeScreen() {
                 id = "1",
                 title = "Avocado Toast with Poached Egg",
                 imageUrl = "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800",
-                cookingTime = "15 min",
-                difficulty = "Easy",
-                rating = 4.9,
                 reviewsCount = "2.4k",
                 isTrending = true
             ),
@@ -52,9 +49,6 @@ fun HomeScreen() {
                 id = "2",
                 title = "Creamy Garlic Chicken",
                 imageUrl = "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800",
-                cookingTime = "30 min",
-                difficulty = "Medium",
-                rating = 4.8,
                 reviewsCount = "1.2k",
                 isTrending = true
             )
@@ -67,31 +61,19 @@ fun HomeScreen() {
                 id = "3",
                 title = "Matcha Chia Pudding",
                 imageUrl = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800",
-                cookingTime = "10m",
-                difficulty = "Easy",
-                rating = 4.7,
                 reviewsCount = "94",
-                badges = listOf("Easy", "Vegan")
             ),
             Recipe(
                 id = "4",
                 title = "Crispy Lemon Herb Salmon",
                 imageUrl = "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800",
-                cookingTime = "20m",
-                difficulty = "Easy",
-                rating = 4.9,
                 reviewsCount = "312",
-                badges = listOf("Easy", "High Protein")
             ),
             Recipe(
                 id = "5",
                 title = "Fluffy Buttermilk Pancakes",
                 imageUrl = "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800",
-                cookingTime = "15m",
-                difficulty = "Easy",
-                rating = 4.8,
                 reviewsCount = "512",
-                badges = listOf("Easy", "Sweet")
             )
         )
     }

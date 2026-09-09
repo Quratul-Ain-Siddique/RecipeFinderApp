@@ -1,13 +1,26 @@
 package com.recipefinder.app.home.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material3.*
+import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,7 +35,6 @@ import coil.compose.AsyncImage
 import com.recipefinder.app.model.Recipe
 import com.recipefinder.app.ui.theme.PrimaryBlue
 import com.recipefinder.app.ui.theme.TextPrimary
-import com.recipefinder.app.ui.theme.TextSecondary
 
 @Composable
 fun FeaturedRecipeCard(
@@ -77,7 +89,12 @@ fun FeaturedRecipeCard(
                         ) {
                             Text(text = "🔥", fontSize = 12.sp)
                             Spacer(modifier = Modifier.width(4.dp))
-                            Text(text = "Trending", color = PrimaryBlue, fontSize = 12.sp, fontWeight = FontWeight.Medium)
+                            Text(
+                                text = "Trending",
+                                color = PrimaryBlue,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Medium
+                            )
                         }
                     }
                 } else {
@@ -100,42 +117,11 @@ fun FeaturedRecipeCard(
                 }
             }
 
-            // Bottom Content
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
                     .padding(20.dp)
             ) {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Surface(
-                        color = Color.White.copy(alpha = 0.15f),
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        ) {
-                            Text(text = "🕒", fontSize = 12.sp)
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(text = recipe.cookingTime, color = Color.White, fontSize = 12.sp)
-                        }
-                    }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Surface(
-                        color = PrimaryBlue.copy(alpha = 0.15f),
-                        shape = RoundedCornerShape(8.dp)
-                    ) {
-                        Text(
-                            text = recipe.difficulty,
-                            color = PrimaryBlue,
-                            fontSize = 12.sp,
-                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(12.dp))
-
                 Text(
                     text = recipe.title,
                     style = MaterialTheme.typography.headlineSmall,
@@ -143,34 +129,11 @@ fun FeaturedRecipeCard(
                     fontWeight = FontWeight.Bold,
                     lineHeight = 30.sp
                 )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Icon(
-                        imageVector = Icons.Filled.Star,
-                        contentDescription = null,
-                        tint = PrimaryBlue,
-                        modifier = Modifier.size(16.dp)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(
-                        text = "${recipe.rating}",
-                        color = TextPrimary,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        text = "(${recipe.reviewsCount} reviews)",
-                        color = TextSecondary,
-                        fontSize = 14.sp
-                    )
-                }
             }
         }
     }
 }
+
 
 @Preview
 @Composable
@@ -180,9 +143,6 @@ private fun FeaturedRecipeCardPreview() {
             id = "1",
             title = "Avocado Toast with Poached Egg",
             imageUrl = "",
-            cookingTime = "15 min",
-            difficulty = "Easy",
-            rating = 4.9,
             reviewsCount = "2.4k",
             isTrending = true
         )

@@ -34,8 +34,6 @@ class RecipeRepository(private val apiService: MealApiService) {
                     id = dto.idMeal,
                     title = dto.strMeal,
                     imageUrl = dto.strMealThumb,
-//                    prepTime = "20 min", // Mock value (API doesn't return time)
-                    rating = 4.8,
                 )
             } ?: emptyList()
             Result.success(domainList)

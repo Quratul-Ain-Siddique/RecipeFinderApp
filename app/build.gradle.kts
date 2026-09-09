@@ -35,6 +35,10 @@ android {
     }
 }
 
+base{
+archivesName="Recipe_Finder_App_${android.defaultConfig.versionName} (${android.defaultConfig.versionCode})"
+}
+
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
