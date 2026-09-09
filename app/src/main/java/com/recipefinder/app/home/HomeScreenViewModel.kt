@@ -7,8 +7,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+
 data class MealDto(
     val idMeal: String,
     val strMeal: String,
@@ -23,6 +26,18 @@ interface MealApiService {
 
     @GET("search.php")
     suspend fun searchMeals(@Query("s") query: String): MealResponse
+
+    companion object {
+        private const val BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
+
+        fun create(): MealApiService {
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(MealApiService::class.java)
+        }
+    }
 }
 
 class RecipeRepository(private val apiService: MealApiService) {
@@ -49,12 +64,12 @@ sealed interface HomeUiState {
     data class Error(val message: String) : HomeUiState
 }
 
-class HomeViewModel(private val repository: RecipeRepository) : ViewModel() {
+class HomeScreenViewModel(private val repository: RecipeRepository) : ViewModel() {
     private val _uiState = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
-        loadRecipes("Dessert")
+        loadRecipes("Breakfast")
     }
 
     fun loadRecipes(category: String) {
