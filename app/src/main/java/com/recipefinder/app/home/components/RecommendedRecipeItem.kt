@@ -90,15 +90,8 @@ fun RecommendedRecipeItem(
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
+                    horizontalArrangement = Arrangement.End
                 ) {
-                    Text(
-                        text = recipe.reviewsCount,
-                        color = TextSecondary,
-                        fontSize = 12.sp
-                    )
-
-
                     Text(
                         text = "View Recipe",
                         color = PrimaryBlue,
@@ -119,7 +112,6 @@ private fun RecommendedRecipeItemPreview() {
             id = "1",
             title = "Matcha Chia Pudding",
             imageUrl = "",
-            reviewsCount = "94",
         )
     )
 }
