@@ -132,7 +132,7 @@ fun HomeScreen(
                                 style = MaterialTheme.typography.titleLarge,
                                 color = TextPrimary,
                                 fontWeight = FontWeight.Bold,
-                                modifier = Modifier.padding(horizontal = 24.dp)
+                                modifier = Modifier.padding(horizontal = 24.dp),
                             )
                         }
 
@@ -142,7 +142,7 @@ fun HomeScreen(
                         items(recommendedRecipes) { recipe ->
                             RecommendedRecipeItem(
                                 recipe = recipe,
-                                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp)
+                                modifier = Modifier.padding(horizontal = 24.dp, vertical = 8.dp),
                             )
                         }
                     }
